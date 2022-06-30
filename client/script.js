@@ -78,8 +78,9 @@ const ohMy = () => {
     axios.get('http://localhost:3000/animals')
     .then (res =>{
         for (let i = 0; i < res.data.length; i++) {
-            let newP = document.createElement('p').textContent = res.data[i]
-            document.querySelector('body').append(newP)
+            let newP = document.createElement('p');
+            newP.textContent = res.data[i];
+            document.querySelector('body').appendChild(newP)
         }
     })
     .catch(error =>{
@@ -139,7 +140,7 @@ document.getElementById('repeat-button').addEventListener('click', repeatMyParam
 
 // CODE HERE
 const getRequest = () => {
-    axios.get('http://localhost:3000/query-test/wer')
+    axios.get('http://localhost:3000/query-test?wer:firf')
     .then(res =>{
         console.log(res.data)
     })
